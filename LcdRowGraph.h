@@ -61,7 +61,6 @@ private:
 	uint8_t _row;
 	uint8_t _firstColumn;
 	uint8_t _columns;
-	uint8_t _lastBlock;
 	boolean _setup;
 
 	void setup();

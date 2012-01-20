@@ -26,7 +26,6 @@ LcdRowGraph:: LcdRowGraph(
 	_row(row),
 	_firstColumn(firstColumn),
 	_columns(lastColumn - firstColumn + 1),
-	_lastBlock(0),
 	_setup(false)
 {
 }
@@ -72,7 +71,7 @@ LcdRowGraph:: unscaled(
 
 	uint8_t letters = value / 5;
 	uint8_t bar = value % 5;
-	uint8_t letter = min(letters, _lastBlock);
+	uint8_t letter = 0;
 
 	_lcd.setCursor(letter + _firstColumn, _row);
 
@@ -80,8 +79,6 @@ LcdRowGraph:: unscaled(
 	{
 		_lcd.write((uint8_t)4);
 	}
-
-	_lastBlock = letter;
 
     if (bar)
 	{
